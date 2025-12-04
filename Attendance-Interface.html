@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        .container {
+            margin: 40px auto;
+            max-width: 900px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1f2937;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+        }
+        table th {
+            background: #2563eb;
+            color: white;
+        }
+        .mark-btn {
+            padding: 8px 14px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .mark-btn:hover {
+            background: #15803d;
+        }
+        .status-present {
+            color: #16a34a;
+            font-weight: bold;
+        }
+        .status-absent {
+            color: #dc2626;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>Attendance Management System</header>
+
+    <div class="container">
+        <h2>Mark Attendance</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Juan Dela Cruz</td>
+                    <td>BSIT</td>
+                    <td id="status1" class="status-absent">Absent</td>
+                    <td><button class="mark-btn" onclick="markPresent('status1')">Mark Present</button></td>
+                </tr>
+                <tr>
+                    <td>Maria Santos</td>
+                    <td>BSBA</td>
+                    <td id="status2" class="status-absent">Absent</td>
+                    <td><button class="mark-btn" onclick="markPresent('status2')">Mark Present</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function markPresent(id) {
+            const cell = document.getElementById(id);
+            cell.textContent = "Present";
+            cell.className = "status-present";
+        }
+    </script>
+</body>
+</html>

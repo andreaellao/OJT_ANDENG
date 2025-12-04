@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payroll System</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f4f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 95%;
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        font-size: 15px;
+    }
+
+    th {
+        background: #4A90E2;
+        color: white;
+        font-weight: bold;
+    }
+
+    input {
+        width: 90%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    .compute-btn {
+        background: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .compute-btn:hover {
+        background: #45a049;
+    }
+
+    .salary {
+        font-weight: bold;
+        color: #333;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Payroll Management</h2>
+
+    <table>
+        <tr>
+            <th>Employee Name</th>
+            <th>Hours Worked</th>
+            <th>Rate / Hour</th>
+            <th>Total Salary</th>
+        </tr>
+
+        <!-- EMPLOYEE 1 -->
+        <tr>
+            <td>Juan Dela Cruz</td>
+            <td><input type="number" id="hours1" placeholder="0"></td>
+            <td><input type="number" id="rate1" placeholder="0"></td>
+            <td class="salary" id="salary1">₱0.00</td>
+        </tr>
+
+        <!-- EMPLOYEE 2 -->
+        <tr>
+            <td>Maria Santos</td>
+            <td><input type="number" id="hours2" placeholder="0"></td>
+            <td><input type="number" id="rate2" placeholder="0"></td>
+            <td class="salary" id="salary2">₱0.00</td>
+        </tr>
+
+        <!-- EMPLOYEE 3 -->
+        <tr>
+            <td>Pedro Ramirez</td>
+            <td><input type="number" id="hours3" placeholder="0"></td>
+            <td><input type="number" id="rate3" placeholder="0"></td>
+            <td class="salary" id="salary3">₱0.00</td>
+        </tr>
+
+    </table>
+
+    <button class="compute-btn" onclick="computePayroll()">Compute Payroll</button>
+</div>
+
+<script>
+function computePayroll() {
+    for (let i = 1; i <= 3; i++) {
+        let hours = document.getElementById("hours" + i).value;
+        let rate = document.getElementById("rate" + i).value;
+
+        let total = 0;
+
+        if (hours && rate) {
+            total = hours * rate;
+        }
+
+        document.getElementById("salary" + i).innerText = "₱" + total.toFixed(2);
+    }
+}
+</script>
+
+</body>
+</html>
